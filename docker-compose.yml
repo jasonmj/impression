@@ -1,0 +1,20 @@
+version: "2"
+services:
+  nerves:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/opt/app
+      - ../../inky:/opt/inky
+      - ../../scenic_driver_inky:/opt/scenic_driver_inky
+      - ~/.nerves/:/root/.nerves
+      - ~/.ssh/:/tmp/.ssh
+      - /dev/sdb:/dev/sdb
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+    env_file: .env
+    privileged: true
+    working_dir: /opt/app
+    stdin_open: true
