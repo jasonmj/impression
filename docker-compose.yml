@@ -8,8 +8,8 @@ services:
       - "4000:4000"
     volumes:
       - ./:/opt/app
-      - ../../inky:/opt/inky
-      - ../../scenic_driver_inky:/opt/scenic_driver_inky
+      - ../inky:/opt/inky
+      - ../scenic_driver_inky:/opt/scenic_driver_inky
       - ~/.nerves/:/root/.nerves
       - ~/.ssh/:/tmp/.ssh
       - /dev/sdb:/dev/sdb
