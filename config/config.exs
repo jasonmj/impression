@@ -34,13 +34,7 @@ config :impression, :viewport, %{
   drivers: [
     %{
       module: ScenicDriverInky,
-      opts: [
-        type: :impression,
-        opts: %{
-          border: :white
-        },
-        dithering: :halftone
-      ]
+      opts: [type: :impression]
     }
   ]
 }
