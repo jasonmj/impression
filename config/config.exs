@@ -26,6 +26,11 @@ config :nerves, source_date_epoch: "1654642946"
 
 config :logger, backends: [RingLogger]
 
+config :logger,
+  application_levels: %{scenic_driver_inky: :debug},
+  color: [debug: :yellow],
+  level: :debug
+
 config :impression, :viewport, %{
   name: :main_viewport,
   default_scene: {Impression.Scene.Main, nil},
