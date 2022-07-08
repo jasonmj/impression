@@ -47,6 +47,7 @@ defmodule Impression.MixProject do
       # Add Inky Nerves
       {:inky, path: "../inky", targets: @all_targets},
       {:scenic_driver_inky, path: "../scenic_driver_inky", targets: @all_targets},
+      {:scenic_driver_glfw, "~> 0.10", targets: :host},
 
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version

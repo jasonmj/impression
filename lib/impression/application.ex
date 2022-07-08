@@ -8,7 +8,7 @@ defmodule Impression.Application do
 
   @impl true
   def start(_type, _args) do
-    start_epmd()
+    if Mix.target() != :host, do: start_epmd()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -19,6 +19,7 @@ defmodule Impression.Application do
         # Children for all targets
         # Starts a worker by calling: Impression.Worker.start_link(arg)
         # {Impression.Worker, arg},
+        {Scenic, viewports: [Application.get_env(:impression, :viewport)]}
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)
@@ -38,7 +39,6 @@ defmodule Impression.Application do
       # Children for all targets except host
       # Starts a worker by calling: Impression.Worker.start_link(arg)
       # {Impression.Worker, arg},
-      {Scenic, viewports: [Application.get_env(:impression, :viewport)]}
     ]
   end
 
