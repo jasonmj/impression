@@ -8,7 +8,7 @@ defmodule Impression.Application do
 
   @impl true
   def start(_type, _args) do
-    if Mix.target() != :host, do: start_epmd()
+    unless is_nil(Application.get_env(:mix_tasks_upload_hotswap, :application)), do: start_epmd()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
