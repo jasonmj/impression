@@ -39,7 +39,7 @@ config :impression, :viewport, %{
   drivers: [
     %{
       module: ScenicDriverInky,
-      opts: [type: :impression]
+      opts: [type: :impression, color_low: 120, dithering: false]
     }
   ]
 }
